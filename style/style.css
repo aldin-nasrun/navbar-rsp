@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+nav{
+    display: flex;
+    background-color: rgb(24, 110, 160);
+    justify-content: space-around;
+    /* padding: 20px 0; */
+    height: 50px;
+    align-items: center;
+    color: aliceblue;
+}
+nav .logo {
+    font-family: cursive;
+}
+nav ul{
+    display: flex;
+    list-style: none;
+    width: 40%;
+    justify-content: space-between;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 0.8em;
+}
+
+nav ul li a:hover{
+    color: brown;
+}
+
+/* RESPONSIVE BREAKPOINT */
+
+/* tablet size */
+@media screen and (max-width:768px){
+    nav ul{
+        width: 55%;
+    }
+}
+
+/* mobile size */
+@media screen and (max-width:576px){
+    nav ul{
+        display: none;
+    }
+}
