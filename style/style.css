@@ -5,6 +5,7 @@
 
 body{
     font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
 }
 nav{
     display: flex;
@@ -35,6 +36,55 @@ nav ul li a:hover{
     color: brown;
 }
 
+.menu-toggle {
+    display: none;
+    height: 20px;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.menu-toggle span{
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: aliceblue;
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+.menu-toggle input{
+    position: absolute;
+    width:40px;
+    height: 28px;
+    left: -5px;
+    top: -1px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+
+}
+/* hamburger css animation  */
+.menu-toggle span:nth-child(2){
+    transform-origin: 0 0;
+}
+.menu-toggle input:checked ~ span:nth-child(2){
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.menu-toggle span:last-child{
+    transform-origin: 0 100%;
+    
+}
+.menu-toggle input:checked ~ span:last-child{
+    transform: rotate(-45deg) translate(-1px,0);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3){
+    transform:translateX(-20px);
+    opacity: 0;
+}
+
 /* RESPONSIVE BREAKPOINT */
 
 /* tablet size */
@@ -47,6 +97,24 @@ nav ul li a:hover{
 /* mobile size */
 @media screen and (max-width:576px){
     nav ul{
-        display: none;
+        background-color: #186ea0ef;
+        position: absolute;
+        flex-direction: column;
+        right: 0;
+        top: 50px;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 50vh;
+        width: 100%;
+        font-size: 1.2em;
+        transform: translateY(-100%);
+        z-index: -1;
+        transition: all 0.5s;
+    }
+    nav ul.slide{
+        transform: translateY(0);
+    }
+    .menu-toggle{
+        display: flex;
     }
 }
